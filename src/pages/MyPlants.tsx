@@ -23,7 +23,7 @@ import waterdrop from '../assets/waterdrop.png'
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantProps[]>([])
   const [loading, setLoading] = useState(true)
-  const [ nextWaterd, setNextWater ] = useState<string>('')
+  const [ nextWaterd, setNextWater ] = useState<string>()
 
   function handleRemove(plant: PlantProps) {
     Alert.alert('Remover', `Deseja remover a ${plant.name}?`, [
@@ -56,8 +56,6 @@ export function MyPlants() {
         new Date().getTime(),
         { locale: pt }
       )
-
-      console.log(plantsStoraged)
 
       setNextWater(
         `Não esqueça de regar a ${plantsStoraged[0].name} à ${nextTime} horas.`
